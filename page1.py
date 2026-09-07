@@ -32,11 +32,12 @@ Menu()
 
 def cherche_file(name):
     path = os.getcwd()
-
+    result_list=[]
     for root, dirs, files in os.walk(path):
         for file in files :
             if name in file :
-                return os.path.join(root,file)
+                result_list.append(os.path.join(root,file))
+        return result_list
                 
             
     return None
