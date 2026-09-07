@@ -34,11 +34,12 @@ def cherche_file(name):
     path = os.getcwd()
 
     for root, dirs, files in os.walk(path):
-        if name in files :
-            print(f" * find {name} in {os.path.join(root,name)}")
-            break
-    else :
-        print(f" * not found {name} ")
+        for file in files :
+            if name in file :
+                return os.path.join(root,file)
+                
+            
+    return None
 
 def Aficher():
     print(os.getcwd())
@@ -150,7 +151,11 @@ while True :
         break
     elif choix == "7":
         name = input(" Entre the file name :")
-        cherche_file(name)
+        result = cherche_file(name)
+        if result :
+            print(f"* File is exists {result}")
+        else : 
+            print(f" * File not found {name} ")
     elif choix == "0":
         Menu()
 
