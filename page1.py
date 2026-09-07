@@ -61,7 +61,7 @@ def Affiche_inside(path):
             else :
                 print(i,")",nombr[i])
     else :
-        print(" directory noy found ")
+        print(" directory not found ")
 
 def Create_dirct(path):
     if not path :
