@@ -46,7 +46,7 @@ def Aficher():
     print(os.getcwd())
 
 def Affiche_inside(path):
-    print(f" Path Befor : {os.getcwd()}")
+    print(f" Path Before : {os.getcwd()}")
     if os.path.isdir(path) :
         nombr= os.listdir(path)
         print("*  List files : ")
