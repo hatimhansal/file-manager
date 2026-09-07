@@ -100,7 +100,7 @@ def Remove_file(path):
                 
                 value_path=os.listdir(path)
                 if value_path :
-                    print(" is not empty")
+                    print("the folder  is not empty")
                     print( " can't remove  folder")
                     break
                 else :
