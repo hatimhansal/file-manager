@@ -37,7 +37,7 @@ def cherche_file(name):
         for file in files :
             if name in file :
                 result_list.append(os.path.join(root,file))
-        return result_list
+    return result_list
                 
             
     return None
@@ -154,7 +154,8 @@ while True :
         name = input(" Entre the file name :")
         result = cherche_file(name)
         if result :
-            print(f"* File is exists {result}")
+            for i in range(len(result)):
+                print(f"* File is exists {result[i]}")
         else : 
             print(f" * File not found {name} ")
     elif choix == "0":
