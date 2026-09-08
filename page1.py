@@ -30,6 +30,12 @@ def Menu ():
 
 Menu()
 
+
+def Open_file(path):
+    os.chdir(path)
+
+
+
 def cherche_file(name):
     path = os.getcwd()
     result_list=[]
@@ -118,14 +124,13 @@ def Remove_file(path):
 
 def Check_dirct_exist(path):
     if os.path.isdir(path) :
-        print(" * ","📁",path,"is exist ")
+        print(" * ","📁","",path,"is exist ")
     elif os.path.isfile(path):
-        print(" * ","📄",path,"is exist")   
+        print(" * ","📄","",path,"is exist")   
     else :
         print( f"* {path} Not  found ")
 
 while True :
-  
     choix = input(" Choses (1 To 7) or (0 Menu )  :")
     if choix == "1":
         Aficher()
@@ -156,8 +161,36 @@ while True :
         if result :
             for i in range(len(result)):
                 print(f"{i} )  {result[i]}")
+            try:
+                chose_file = int(input(" Choses file :"))
+                if chose_file >= 0 and chose_file <= len(result)-1 :   
+                    print(f" {chose_file} ) file chose ",result[chose_file])
+                    get_file_path =result[chose_file]
+                    print("""
+                        1. Delete
+                        2. Show information
+                        3. Open
+                        4. Back
+                    """)
+                    number_choix_file=int(input("* Choses 1 to 4 :"))
+                    match number_choix_file:
+                        case 1:
+                            Remove_file(get_file_path)
+                        case 2 : 
+                            print(f" File : {os.path.basename(get_file_path)} \n Path : {get_file_path} \n size : {os.path.getsize(get_file_path)} bytes  ")
+                            
+                        case 3 : 
+                            os.path.sub
+                        case 4 :
+                            print('4')
+                        
+                else :
+                    print( f" Entre the number in  0 - {len(result)-1}")
+            except  ValueError:
+                print( f"  Entre the number into 0 - {len(result)-1}")
         else : 
             print(f" * File not found {name} ")
+
     elif choix == "0":
         Menu()
 
