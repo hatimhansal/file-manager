@@ -155,7 +155,7 @@ while True :
         result = cherche_file(name)
         if result :
             for i in range(len(result)):
-                print(f"* File is exists {result[i]}")
+                print(f"{i} )  {result[i]}")
         else : 
             print(f" * File not found {name} ")
     elif choix == "0":
